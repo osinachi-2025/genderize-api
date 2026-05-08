@@ -2,6 +2,7 @@ from flask import Flask, jsonify, render_template, request
 import requests
 from flask_cors import CORS
 from datetime import datetime
+import os
 
 app = Flask(__name__)
 CORS(app)
@@ -54,4 +55,4 @@ def delete_result(index):
     
     
 if __name__ == '__main__':   
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
